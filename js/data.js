@@ -26,70 +26,70 @@
 */
 
 const PROJECTS = [
-  {
-    title: "Sample Project: Traffic Sign Classifier",
-    description:
-      "A CNN trained on the GTSRB dataset to classify traffic signs in real time from a webcam feed. Built for a computer vision course project.",
-    tags: ["Python", "PyTorch", "Computer Vision"],
-    image: "", // e.g. "assets/projects/traffic-signs.png"
-    links: {
-      github: "https://github.com/your-username/traffic-sign-classifier",
-      demo: "",
-      writeup: "",
-    },
-    code: [
-      {
-        filename: "train.py",
-        language: "python",
-        snippet:
-`import torch
-from torch import nn, optim
-from model import TrafficSignNet
-from data import get_dataloaders
+//   {
+//     title: "Sample Project: Traffic Sign Classifier",
+//     description:
+//       "A CNN trained on the GTSRB dataset to classify traffic signs in real time from a webcam feed. Built for a computer vision course project.",
+//     tags: ["Python", "PyTorch", "Computer Vision"],
+//     image: "", // e.g. "assets/projects/traffic-signs.png"
+//     links: {
+//       github: "https://github.com/your-username/traffic-sign-classifier",
+//       demo: "",
+//       writeup: "",
+//     },
+//     code: [
+//       {
+//         filename: "train.py",
+//         language: "python",
+//         snippet:
+// `import torch
+// from torch import nn, optim
+// from model import TrafficSignNet
+// from data import get_dataloaders
 
-def train(epochs=20, lr=1e-3):
-    train_loader, val_loader = get_dataloaders(batch_size=64)
-    model = TrafficSignNet(num_classes=43).to(DEVICE)
-    opt = optim.Adam(model.parameters(), lr=lr)
-    criterion = nn.CrossEntropyLoss()
+// def train(epochs=20, lr=1e-3):
+//     train_loader, val_loader = get_dataloaders(batch_size=64)
+//     model = TrafficSignNet(num_classes=43).to(DEVICE)
+//     opt = optim.Adam(model.parameters(), lr=lr)
+//     criterion = nn.CrossEntropyLoss()
 
-    for epoch in range(epochs):
-        model.train()
-        for images, labels in train_loader:
-            images, labels = images.to(DEVICE), labels.to(DEVICE)
-            opt.zero_grad()
-            loss = criterion(model(images), labels)
-            loss.backward()
-            opt.step()
-        print(f"epoch {epoch}: loss={loss.item():.4f}")`,
-      },
-      {
-        filename: "model.py",
-        language: "python",
-        snippet:
-`import torch.nn as nn
+//     for epoch in range(epochs):
+//         model.train()
+//         for images, labels in train_loader:
+//             images, labels = images.to(DEVICE), labels.to(DEVICE)
+//             opt.zero_grad()
+//             loss = criterion(model(images), labels)
+//             loss.backward()
+//             opt.step()
+//         print(f"epoch {epoch}: loss={loss.item():.4f}")`,
+//       },
+//       {
+//         filename: "model.py",
+//         language: "python",
+//         snippet:
+// `import torch.nn as nn
 
-class TrafficSignNet(nn.Module):
-    def __init__(self, num_classes=43):
-        super().__init__()
-        self.features = nn.Sequential(
-            nn.Conv2d(3, 32, 3, padding=1), nn.ReLU(),
-            nn.MaxPool2d(2),
-            nn.Conv2d(32, 64, 3, padding=1), nn.ReLU(),
-            nn.MaxPool2d(2),
-        )
-        self.classifier = nn.Sequential(
-            nn.Flatten(),
-            nn.Linear(64 * 8 * 8, 128), nn.ReLU(),
-            nn.Dropout(0.3),
-            nn.Linear(128, num_classes),
-        )
+// class TrafficSignNet(nn.Module):
+//     def __init__(self, num_classes=43):
+//         super().__init__()
+//         self.features = nn.Sequential(
+//             nn.Conv2d(3, 32, 3, padding=1), nn.ReLU(),
+//             nn.MaxPool2d(2),
+//             nn.Conv2d(32, 64, 3, padding=1), nn.ReLU(),
+//             nn.MaxPool2d(2),
+//         )
+//         self.classifier = nn.Sequential(
+//             nn.Flatten(),
+//             nn.Linear(64 * 8 * 8, 128), nn.ReLU(),
+//             nn.Dropout(0.3),
+//             nn.Linear(128, num_classes),
+//         )
 
-    def forward(self, x):
-        return self.classifier(self.features(x))`,
-      },
-    ],
-  },
+//     def forward(self, x):
+//         return self.classifier(self.features(x))`,
+//       },
+//     ],
+//   },
   {
     title: "CS128 Final Project: Image Enhancement/Compression Suite",
     description:
