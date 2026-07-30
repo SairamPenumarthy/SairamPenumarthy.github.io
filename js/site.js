@@ -106,15 +106,24 @@ function renderPapers() {
         <div class="card-body">
           <h3 class="card-title">${paper.title}</h3>
           ${meta ? `<p class="card-meta">${meta}</p>` : ""}
-          <p class="card-desc">${paper.abstract}</p>
+          <p class="card-desc abstract-text abstract-hidden">${paper.abstract}</p>
           ${renderTags(paper.tags)}
           <div class="card-actions">
             ${renderLinks(paper.links)}
+            <button class="btn-link btn-abstract">Read Abstract &#9662;</button>
           </div>
         </div>
       </article>
     `);
     grid.appendChild(card);
+  });
+
+  grid.addEventListener("click", (e) => {
+    const btn = e.target.closest(".btn-abstract");
+    if (!btn) return;
+    const abstract = btn.closest(".paper-card").querySelector(".abstract-text");
+    const nowHidden = abstract.classList.toggle("abstract-hidden");
+    btn.innerHTML = nowHidden ? "Read Abstract &#9662;" : "Hide Abstract &#9652;";
   });
 }
 

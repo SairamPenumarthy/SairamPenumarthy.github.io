@@ -90,6 +90,18 @@ class TrafficSignNet(nn.Module):
       },
     ],
   },
+  {
+    title: "CS128 Final Project: Image Enhancement/Compression Suite",
+    description:
+      "My first college project experience! Created a terminal-based suite of ppm filters and compression/decompression algorithms using Huffman compression in C++.",
+    tags: ["C++", "Huffman Compression", "Image Filters"],
+    image: "", // e.g. "assets/projects/traffic-signs.png"
+    links: {
+      github: "",
+      demo: "",
+      writeup: "",
+    },
+  },
 ];
 
 /*
@@ -111,14 +123,66 @@ class TrafficSignNet(nn.Module):
 
 const PAPERS = [
   {
-    title: "Sample Paper: Robustness of Vision Transformers Under Adversarial Noise",
-    course: "Advanced Machine Learning",
+    title: "Tapestry: Snapshot Isolation and Deterministic Commits for Multi-Agent Memory",
+    course: "Advanced Distributed Systems",
+    date: "Spring 2026",
+    abstract:
+      "LLM agents are increasingly deployed as multiagent systems (MAS) that collaborate on complex tasks such as planning, code generation, and research synthesis. Empirical analysis of MAS failures confirms that 44.2% stem from system design issues rather than model limitations [2], underscoring the need for principled shared state infrastructure. A central challenge in these systems is shared memory: agents must read and write a common execution state without introducing inconsistencies, lost updates, or redundant work. Existing frameworks fail to provide concurrency control and durability guarantees for multi-agent shared state. We present Tapestry, a concurrency control and durability layer for shared agent tapes in MAS. Our design represents memory as an append-only log with typed events and an immutable checkpoint chain. Agents execute against snapshot reads and concurrently write to a staging area; a deterministic committer validates and merges writes before advancing the committed checkpoint. We evaluate Tapestry on GAIA, a multi-agent question-answering benchmark with three levels of increasing task complexity. Compared to a single-agent TapeAgents baseline, Tapestry delivers two advantages that grow with task complexity: concurrent multi-wave execution yields up to a 63% token reduction and 45% latency reduction on Level 3 GAIA tasks, and checkpoint-based crash recovery provides up to an 8.8× speedup over a full cold restart. These results demonstrate that principled concurrency control and durable state management provide a practical path to scaling multi-agent systems as task complexity increases.",
+    tags: ["Distributed Systems", "Multi-Agent Systems"],
+    links: {
+      pdf: "assets/papers/CS525_paper.pdf", // e.g. "assets/papers/vit-robustness.pdf"
+      slides: "",
+      code: "",
+    },
+  },
+  {
+    title: "SecARP: Scalable ARP spoofing mitigation with a Distributed SDN",
+    course: "Advanced Networking",
     date: "Fall 2025",
     abstract:
-      "We evaluate the robustness of Vision Transformers versus CNNs under FGSM and PGD adversarial attacks, finding that ViTs degrade more gracefully at low perturbation budgets but lose this advantage as budget increases.",
-    tags: ["Deep Learning", "Adversarial ML"],
+      "ARP spoofing is a perennial problem in computer security. The stateless and trusting nature of the ARP protocol allows bad actors to mimic other hosts in a network and engage in attacks like Man-in-the-Middle. As a result, solutions to this problem have also appeared. We present in this paper a distributed SDN controller solution which drastically reduces latency for packets in the network while still remaining effective at detecting and mitigating ARP spoofing attempts.",
+    tags: ["Computer Networks", "Network Security", "Distributed Systems"],
     links: {
-      pdf: "", // e.g. "assets/papers/vit-robustness.pdf"
+      pdf: "assets/papers/CS538_paper.pdf", // e.g. "assets/papers/vit-robustness.pdf"
+      slides: "",
+      code: "",
+    },
+  },
+  {
+    title: "ORIGIN: Google Street-view Image Location Discovery",
+    course: "Advanced Computer Vision",
+    date: "Fall 2025",
+    abstract:
+      "Identifying the location at which different images have been taken from have long had applications in national defense and security, but in recent years, has also become increasingly popular in video games such as GeoGuessr. This project aims to translate the popular game to computers by using computer vision techniques to localize where different street-view images originate from instead of prompting a human user.",
+    tags: ["Computer Vision"],
+    links: {
+      pdf: "assets/papers/CS543_paper.pdf", // e.g. "assets/papers/vit-robustness.pdf"
+      slides: "",
+      code: "",
+    },
+  },
+  {
+    title: "WIPIVIZ: A study on how WiFi Visualization can help users identify WiFi hotspots",
+    course: "Smart Cities, Homes, and Beyond",
+    date: "Fall 2025",
+    abstract:
+      "As the dependence on stable WiFi continues to grow,weunderstand that the placement of WiFi routers and devices requiring the signal will also become more important. WiFi signals can be affected widely by walls, doors, and nearby objects. However, the effect obstacles have on WiFi signal strength is hard to visualize and quantify for most consumers.\n Our project, WIPIVIZ, aims to bridge this knowledge gap and help educate consumers about the ideal placement of routers to help them provide the most stable WiFi connection to devices in the room. Eventually, we would want our project, WIPIVIZ, to allow for a seamless way for users to use the VR headset to directly \"place\" and test virtual router locations in a room and visualize estimated WiFi hot spots, and figure out where the connection may not be as strong.",
+    tags: ["Human-Computer Interaction", "Wireless Networks", "Visualization"],
+    links: {
+      pdf: "assets/papers/CS598EKS_paper.pdf", // e.g. "assets/papers/vit-robustness.pdf"
+      slides: "",
+      code: "",
+    },
+  },
+  {
+    title: "CS412 Project on Earthquake Prediction using Phonetic Data",
+    course: "Data Mining",
+    date: "Spring 2026",
+    abstract:
+      "Reliable earthquake forecasting remains an open problem in seismology. Motivated by an analogy between prosodic structure in speech and stress-related changes in acoustic waveforms, we investigate whether speech-inspired features can predict the remaining time before laboratory-induced fault failure. We compare handcrafted eGeMAPS acoustic features against data-driven MiniRocket convolutional features, evaluating both with LightGBM, XGBoost, Random Forest, and SVR regressors on Kaggle private test MAE and five-fold cross-validation MAE. LightGBM trained on eGeMAPS features achieves the best overall performance, outperforming all other model and feature combinations. Feature importance analysis shows that the top eGeMAPS feature (related to first-formant bandwidth variability) and the top MiniRocket feature are highly correlated, indicating that the two independent pipelines converge on a similar underlying predictive signal despite differing extraction philosophies. Finally, a preprocessing ablation reveals that wavelet denoising improves eGeMAPS performance but degrades MiniRocket performance, suggesting that preprocessing should be tailored to the feature extractor: handcrafted features benefit from noise suppression, whereas MiniRocket relies on fine-grained temporal textures that denoising can remove. These findings highlight the value of aligning preprocessing and feature-extraction strategies with the structural assumptions of the downstream model when analyzing pre-failure acoustic signals.",
+    tags: ["Data Mining"],
+    links: {
+      pdf: "assets/papers/CS412_paper.pdf", // e.g. "assets/papers/vit-robustness.pdf"
       slides: "",
       code: "",
     },

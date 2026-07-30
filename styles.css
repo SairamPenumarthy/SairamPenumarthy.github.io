@@ -200,6 +200,12 @@ main {
 
 .paper-card .card-body { padding-top: 1.25rem; }
 
+.abstract-text.abstract-hidden { display: none; }
+
+#papers-grid {
+  grid-template-columns: 1fr;
+}
+
 /* ---------------------------------- Tags ---------------------------------- */
 
 .tags {
