@@ -85,9 +85,41 @@ main {
 .hero {
   min-height: 70vh;
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2.5rem;
+}
+
+.hero-text {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 0.75rem;
+  flex: 1;
+}
+
+.hero-portrait {
+  width: clamp(180px, 24vw, 320px);
+  height: clamp(180px, 24vw, 320px);
+  flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--panel-border);
+  background: linear-gradient(135deg, rgba(100,150,255,0.15), rgba(70,110,220,0.05));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent-dim);
+}
+
+.hero-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .hero h1 {
@@ -204,6 +236,10 @@ main {
 
 #papers-grid {
   grid-template-columns: 1fr;
+}
+
+.photo-card .card-media {
+  height: 220px;
 }
 
 /* ---------------------------------- Tags ---------------------------------- */
@@ -365,4 +401,15 @@ main {
 @media (max-width: 640px) {
   .navbar { padding: 0.85rem 1rem; }
   .section { padding: 2.75rem 0; }
+
+  .hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 1.5rem;
+  }
+
+  .hero-portrait {
+    width: clamp(160px, 45vw, 220px);
+    height: clamp(160px, 45vw, 220px);
+  }
 }

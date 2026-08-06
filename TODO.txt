@@ -1,7 +1,8 @@
-Fixes
-- If mouse is close to dot on ripple click, dot loses added velocity very fast.
-
 Content
-- Add actual website stuff
-    - Navbar, headers, bodies, images
-    - Some way to show projects nicely (hook into github and alternate between code files, displaying them by slowly scrolling through parts of them?)
+    Papers
+        - Add paper slides I can find
+    Projects
+        - Add pictures; if no picture, dont show anything
+    Misc.
+        - Add work exp section (internship)
+        - Photos section????

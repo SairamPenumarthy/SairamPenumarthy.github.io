@@ -47,7 +47,7 @@ function renderProjects() {
   PROJECTS.forEach((project, i) => {
     const media = project.image
       ? `<div class="card-media" style="background-image:url('${project.image}')"></div>`
-      : `<div class="card-media card-media-placeholder"><span>${initials(project.title)}</span></div>`;
+      : "";
 
     const codeButton = project.code && project.code.length
       ? `<button class="btn-link btn-code" data-project-index="${i}">View Code &#9002;</button>`
@@ -77,15 +77,6 @@ function renderProjects() {
     const project = PROJECTS[Number(btn.dataset.projectIndex)];
     openCodeModal(project.title, project.code);
   });
-}
-
-function initials(title) {
-  return title
-    .split(/\s+/)
-    .filter(Boolean)
-    .slice(0, 2)
-    .map(w => w[0].toUpperCase())
-    .join("");
 }
 
 /* ----------------------------- Papers grid ------------------------------ */
@@ -127,7 +118,33 @@ function renderPapers() {
   });
 }
 
+/* ----------------------------- Photos grid ------------------------------ */
+
+function renderPhotos() {
+  const grid = document.getElementById("photos-grid");
+  if (!grid) return;
+
+  if (!PHOTOS.length) {
+    grid.appendChild(el(`<p class="empty-state">No photos yet — add one in js/data.js.</p>`));
+    return;
+  }
+
+  PHOTOS.forEach((photo) => {
+    const card = el(`
+      <article class="card photo-card">
+        <div class="card-media" style="background-image:url('${photo.src}')"></div>
+        <div class="card-body">
+          <p class="card-desc">${photo.caption}</p>
+        </div>
+      </article>
+    `);
+    grid.appendChild(card);
+  });
+}
+
 /* -------------------------- Code preview modal -------------------------- */
+/* Only present on index.html — guarded so pages without it (e.g. photos.html)
+   can still load this shared script. */
 
 const modal = document.getElementById("code-modal");
 const modalTitle = document.getElementById("code-modal-title");
@@ -203,26 +220,29 @@ function tickAutoplay() {
   state.raf = requestAnimationFrame(tickAutoplay);
 }
 
-modalTabs.addEventListener("click", (e) => {
-  const tab = e.target.closest(".code-tab");
-  if (!tab || !autoplay) return;
-  clearTimeout(autoplay.holdTimeout);
-  autoplay.waiting = false;
-  showSnippet(Number(tab.dataset.index));
-});
+if (modal) {
+  modalTabs.addEventListener("click", (e) => {
+    const tab = e.target.closest(".code-tab");
+    if (!tab || !autoplay) return;
+    clearTimeout(autoplay.holdTimeout);
+    autoplay.waiting = false;
+    showSnippet(Number(tab.dataset.index));
+  });
 
-modal.addEventListener("mouseenter", () => { if (autoplay) autoplay.paused = true; });
-modal.addEventListener("mouseleave", () => { if (autoplay) autoplay.paused = false; });
+  modal.addEventListener("mouseenter", () => { if (autoplay) autoplay.paused = true; });
+  modal.addEventListener("mouseleave", () => { if (autoplay) autoplay.paused = false; });
 
-modalClose.addEventListener("click", closeCodeModal);
-modal.addEventListener("click", (e) => {
-  if (e.target === modal) closeCodeModal(); // backdrop click
-});
-window.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && !modal.classList.contains("hidden")) closeCodeModal();
-});
+  modalClose.addEventListener("click", closeCodeModal);
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) closeCodeModal(); // backdrop click
+  });
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !modal.classList.contains("hidden")) closeCodeModal();
+  });
+}
 
 /* --------------------------------- Init --------------------------------- */
 
 renderProjects();
 renderPapers();
+renderPhotos();

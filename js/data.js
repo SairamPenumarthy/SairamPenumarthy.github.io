@@ -91,6 +91,54 @@ const PROJECTS = [
 //     ],
 //   },
   {
+    title: "Numberle",
+    description:
+      "Coded a game entirely using an FPGA and applicable sensors. The game functions similar to Wordle. Users must guess a 4 digit number by pressing buttons on an FPGA to select digits. Results are shown on four 7 segment displays to see how close one is to the right digit in each position. Memory of previous guesses can be accessed.",
+    tags: ["MIPS", "Verilog", "FPGA", "Computer Architecture"],
+    image: "", // e.g. "assets/projects/traffic-signs.png"
+    links: {
+      github: "",
+      demo: "",
+      writeup: "",
+    },
+  },
+  {
+    title: "UIUC Course Review",
+    description:
+      "Made with databases in mind, this project had X objectives: \n\n 1. Compile UIUC class statistics from a publicly available dataset \n 2. Create an efficient database schema using a relational database \n 3. Code a functioning frontend/backend to handle user friendly queries for data and review posting/viewing \n 4. Write a stored procedure and trigger. This was a great hands-on experience to learn database concepts and web programming.",
+    tags: ["MySQL", "GCP", "ExpressJS", "HTML/CSS", "Databases", "Full Stack"],
+    image: "", // e.g. "assets/projects/traffic-signs.png"
+    links: {
+      github: "",
+      demo: "",
+      writeup: "",
+    },
+  },
+  {
+    title: "Biped Car",
+    description:
+      "I had a lot of fun with this one. A biped car which required a functioning PID controller with proper tuning for self-balancing, and coding of the underlying ESP32 system for real-time processing. Connected to a ground station to view telemetry.",
+    tags: ["C++", "Real-Time Systems", "PID Controller", "ESP32", "Robotics"],
+    image: "", // e.g. "assets/projects/traffic-signs.png"
+    links: {
+      github: "",
+      demo: "",
+      writeup: "",
+    },
+  },
+  {
+    title: "Amtrak Planner",
+    description:
+      "This project aimed to apply a standard algorithm, such as Djikstra's for finding shortest paths in a non-negative weighted directed graph, to real life. A large dataset of Amtrak stations was compiled and formed a graph on which Djikstra's could be run for the shortest path by distance. Multi-threading is used to speed up queries with frontend rendering. The project uses an all-python frontend and backend.",
+    tags: ["Python", "Djikstra's Algorithm", "Multi-Threading", "User Interface"],
+    image: "", // e.g. "assets/projects/traffic-signs.png"
+    links: {
+      github: "",
+      demo: "",
+      writeup: "",
+    },
+  },
+  {
     title: "CS128 Final Project: Image Enhancement/Compression Suite",
     description:
       "My first college project experience! Created a terminal-based suite of ppm filters and compression/decompression algorithms using Huffman compression in C++.",
@@ -128,10 +176,10 @@ const PAPERS = [
     date: "Spring 2026",
     abstract:
       "LLM agents are increasingly deployed as multiagent systems (MAS) that collaborate on complex tasks such as planning, code generation, and research synthesis. Empirical analysis of MAS failures confirms that 44.2% stem from system design issues rather than model limitations [2], underscoring the need for principled shared state infrastructure. A central challenge in these systems is shared memory: agents must read and write a common execution state without introducing inconsistencies, lost updates, or redundant work. Existing frameworks fail to provide concurrency control and durability guarantees for multi-agent shared state. We present Tapestry, a concurrency control and durability layer for shared agent tapes in MAS. Our design represents memory as an append-only log with typed events and an immutable checkpoint chain. Agents execute against snapshot reads and concurrently write to a staging area; a deterministic committer validates and merges writes before advancing the committed checkpoint. We evaluate Tapestry on GAIA, a multi-agent question-answering benchmark with three levels of increasing task complexity. Compared to a single-agent TapeAgents baseline, Tapestry delivers two advantages that grow with task complexity: concurrent multi-wave execution yields up to a 63% token reduction and 45% latency reduction on Level 3 GAIA tasks, and checkpoint-based crash recovery provides up to an 8.8× speedup over a full cold restart. These results demonstrate that principled concurrency control and durable state management provide a practical path to scaling multi-agent systems as task complexity increases.",
-    tags: ["Distributed Systems", "Multi-Agent Systems"],
+    tags: ["Distributed Systems", "Multi-Agent Systems", "AWS"],
     links: {
       pdf: "assets/papers/CS525_paper.pdf", // e.g. "assets/papers/vit-robustness.pdf"
-      slides: "",
+      slides: "https://uillinoisedu-my.sharepoint.com/:p:/g/personal/dkraval2_illinois_edu/IQCXPxoMftuJRrkUhjjCVAv1AVRgXNXNB67WwfQUa0aiPHA?e=t9n3dO",
       code: "",
     },
   },
@@ -144,7 +192,7 @@ const PAPERS = [
     tags: ["Computer Networks", "Network Security", "Distributed Systems"],
     links: {
       pdf: "assets/papers/CS538_paper.pdf", // e.g. "assets/papers/vit-robustness.pdf"
-      slides: "",
+      slides: "https://uillinoisedu-my.sharepoint.com/:p:/g/personal/tabeeb_illinois_edu/IQCbtwsuVszCRJnWg5NxQ2HEAefmS7k9elbje5mYsbosW7Y?e=9JxMsU",
       code: "",
     },
   },
@@ -154,7 +202,7 @@ const PAPERS = [
     date: "Fall 2025",
     abstract:
       "Identifying the location at which different images have been taken from have long had applications in national defense and security, but in recent years, has also become increasingly popular in video games such as GeoGuessr. This project aims to translate the popular game to computers by using computer vision techniques to localize where different street-view images originate from instead of prompting a human user.",
-    tags: ["Computer Vision"],
+    tags: ["Python", "PyTorch", "Computer Vision", "Classification"],
     links: {
       pdf: "assets/papers/CS543_paper.pdf", // e.g. "assets/papers/vit-robustness.pdf"
       slides: "",
@@ -167,10 +215,10 @@ const PAPERS = [
     date: "Fall 2025",
     abstract:
       "As the dependence on stable WiFi continues to grow,weunderstand that the placement of WiFi routers and devices requiring the signal will also become more important. WiFi signals can be affected widely by walls, doors, and nearby objects. However, the effect obstacles have on WiFi signal strength is hard to visualize and quantify for most consumers.\n Our project, WIPIVIZ, aims to bridge this knowledge gap and help educate consumers about the ideal placement of routers to help them provide the most stable WiFi connection to devices in the room. Eventually, we would want our project, WIPIVIZ, to allow for a seamless way for users to use the VR headset to directly \"place\" and test virtual router locations in a room and visualize estimated WiFi hot spots, and figure out where the connection may not be as strong.",
-    tags: ["Human-Computer Interaction", "Wireless Networks", "Visualization"],
+    tags: ["C#", "Unity", "Human-Computer Interaction", "Wireless Networks", "Simulation"],
     links: {
       pdf: "assets/papers/CS598EKS_paper.pdf", // e.g. "assets/papers/vit-robustness.pdf"
-      slides: "",
+      slides: "https://docs.google.com/presentation/d/1-nNw3EK7M-eesC2egxkVZoAZGUxX5bORI0BIKOAwmfo/edit?usp=sharing",
       code: "",
     },
   },
@@ -180,11 +228,30 @@ const PAPERS = [
     date: "Spring 2026",
     abstract:
       "Reliable earthquake forecasting remains an open problem in seismology. Motivated by an analogy between prosodic structure in speech and stress-related changes in acoustic waveforms, we investigate whether speech-inspired features can predict the remaining time before laboratory-induced fault failure. We compare handcrafted eGeMAPS acoustic features against data-driven MiniRocket convolutional features, evaluating both with LightGBM, XGBoost, Random Forest, and SVR regressors on Kaggle private test MAE and five-fold cross-validation MAE. LightGBM trained on eGeMAPS features achieves the best overall performance, outperforming all other model and feature combinations. Feature importance analysis shows that the top eGeMAPS feature (related to first-formant bandwidth variability) and the top MiniRocket feature are highly correlated, indicating that the two independent pipelines converge on a similar underlying predictive signal despite differing extraction philosophies. Finally, a preprocessing ablation reveals that wavelet denoising improves eGeMAPS performance but degrades MiniRocket performance, suggesting that preprocessing should be tailored to the feature extractor: handcrafted features benefit from noise suppression, whereas MiniRocket relies on fine-grained temporal textures that denoising can remove. These findings highlight the value of aligning preprocessing and feature-extraction strategies with the structural assumptions of the downstream model when analyzing pre-failure acoustic signals.",
-    tags: ["Data Mining"],
+    tags: ["Data Mining", "Machine Learning", "Phonetics"],
     links: {
       pdf: "assets/papers/CS412_paper.pdf", // e.g. "assets/papers/vit-robustness.pdf"
       slides: "",
       code: "",
     },
   },
+];
+
+/*
+  PERSONAL PHOTOS
+  ---------------
+  Shown on photos.html. Each entry is an object with these fields:
+
+    src         (string, required)  Path to the photo, e.g.
+                                     "assets/photos/hiking.jpg".
+    caption     (string, required)  A brief description shown under the photo.
+
+  Delete the sample photo below and add your own.
+*/
+
+const PHOTOS = [
+//   {
+//     src: "assets/photos/sample.jpg",
+//     caption: "A short description of this photo.",
+//   },
 ];
